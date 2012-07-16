@@ -5,8 +5,3 @@
 require File.expand_path('../config/application', __FILE__)
 
 RailsBootstrap::Application.load_tasks
-
-task :default do
-  puts "*** All good ***"
-  true
-end
