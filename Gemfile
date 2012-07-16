@@ -7,6 +7,7 @@ gem 'sqlite3'
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
+  gem 'compass-rails'
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -15,7 +16,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem "slim", "~> 1.2.2"
+gem "slim", '~> 1.2.2'
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
