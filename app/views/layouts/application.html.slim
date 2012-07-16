@@ -13,8 +13,6 @@ html
     link href="/images/favicon.png"  rel="icon"  type="image/png"
     link href="/images/touch.png"  rel="apple-touch-icon"
     == stylesheet_link_tag "application", :media => "all"
-    link href="/stylesheets/application.css" media="screen" rel="stylesheet"
-    script src="/javascripts/lib/modernizr-1.6.min.js"
     == render :partial => "/layouts/analytics", :collection => {}    
   body class="#{yield :body_class}"
     .container
@@ -22,8 +20,5 @@ html
       .main
         == yield
 
-    script src="http://code.jquery.com/jquery-1.7.1.min.js"
-    javascript:
-      window.jQuery || document.write('<script src="/javascripts/lib/jquery-1.7.1.min.js"><\/script>')
     == javascript_include_tag "application"
     == yield :footer_scripts
