@@ -3,7 +3,7 @@
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 
   body {
-    padding: 30px 20px;
+//    padding: 30px 20px;
   }
 }
 
@@ -30,6 +30,11 @@
 
 }
 
+@media only screen and (min-width: 481px) {
+  body {
+    padding: 0 2em;
+  }
+}
 /* Desktops and laptops (CJC) ----------- */
 @media only screen and (min-width: 998px) {
 

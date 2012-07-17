@@ -4,12 +4,15 @@
 
 $color_1: #b4d13a;
 $color_2: #056EB6;
-$color_3: #77bf47;
+$color_3: #666;
 $color_4: #222;
 $color_default_text: #222;
 $color_background: #fff;
+$color_borders: #ccc;
 
-$heading_fontstack: "Gill Sans", "Gill Sans MT", GillSans, Calibri, "Trebuchet MS", sans-serif;
+$heading_fontstack: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+$para_fontstack: "Helvetica Neue", sans-serif;
+$code_fontstack: Monaco, Menlo,'Courier New',Courier,monospace;
 
 /* ============================================================
     Sections
@@ -26,9 +29,9 @@ body, body * {
 
 body {
   margin: 0 auto;
-  padding: 0 2em; /* Temporary */
+  padding: 0; /* Temporary */
   color: $color_default_text;
-  font: 100%/1.5 "Helvetica Neue", sans-serif;
+  font: 100%/1.5 $para_fontstack;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: none;
@@ -44,25 +47,25 @@ nav {
 h1 {
   margin: 24px 0 0 0;
   color: $color_2;
-  font: 500 3.5em/1.2em $heading_fontstack; 
-  letter-spacing: -1px;
+  font: 500 2.9em/1.2em $heading_fontstack; 
+  letter-spacing: -0.075em;
 }
 h2 {
   margin: 22px 0 0 0;
   padding: 11px 0 0 0;
   color: $color_2;
-  font: 300 2.1em/1.1em $heading_fontstack;
-  letter-spacing: -1px;
+  font: 300 2.1em/1.2em $heading_fontstack;
+  letter-spacing: -0.075em;
 }
 h3 {
   margin: 20px 0 0 0;
   color: $color_4;
-  font: 300 1.5em/1.275 $heading_fontstack;
+  font: 300 1.3em/1.1 $heading_fontstack;
 }
 h4, h5, h6 {
   margin: 12px 0 4px 0;
   color: $color_4;
-  font: 300 1em/1 $heading_fontstack;
+  font: 300 1.05em/1 $heading_fontstack;
 }
 
 
@@ -89,13 +92,24 @@ hr {
 }
 
 hr::after {
-  content: "···";
+  content: "...";
   height: 0;
   padding-left: 1em;
   color: #bbb;
   letter-spacing: 1em;
 }
 
+blockquote {
+  color: $color_3;
+//  font: 300 0.9375em/1.6 'Akagi Book','Helvetica Neue',Arial,sans-serif;
+  border-left: 4px solid $color_borders;
+  margin: 1.0667em 0 1.6em 0;
+  padding: 0 1.6em 0 1.334em;  
+  p {
+    line-height: 1.6;
+    margin: 0.5333em 0;
+  }
+}
 blockquote, q {
   quotes:none;
   &:before, &:after {
@@ -137,6 +151,11 @@ figure {
   }
 }
 
+.example {
+  outline: 1px solid #EEE;
+  margin: 12px 0 1em 0;
+  padding: 0.5em 1em 1.5em 1em;
+}
 
 
 /* ============================================================
@@ -156,6 +175,13 @@ a {
   }
 }
 
+em, em a, i, var, samp, cite, cite a {
+  font: italic 300 1em/90% $para_fontstack;
+}
+strong, b {
+  font-weight: 600;
+}
+
 :lang(en-gb)>q {
   quotes:"\201C" "\201D" "\2018" "\2019";
 }
@@ -172,12 +198,14 @@ small {
     font-size: 14px; /* 14px */
     line-height: 16px; /* 16px */
 }
-
+dfn[title] {
+  border-bottom: 1px dotted rgba(0,0,0,0.2);
+  cursor: help;
+}
 abbr {
   letter-spacing: 1px;
   &[title]:hover {
-    border-bottom: 1px dotted rgba(0,0,0,0.2);
-    cursor: help;
+    @extend dfn[title];
   }
 }
 time {
@@ -188,18 +216,33 @@ time {
   text-transform: uppercase;
 }
 code, samp {
-  font: 14px/90% Menlo,Monaco,'Courier New',Courier,monospace;
+  font: 14px/90% $code_fontstack;
 }
 code {
   color:$color_2;
 }
+.code {
+  margin: 1em 0 0em 2.5em;
+  font: 0.875em/1.7143 $code_fontstack;
+  color: #999;
+  li {
+    list-style: decimal-leading-zero;
+    background: #F0F0F0;
+    margin: 0 0 -1px 0;
+    border-top: 1px solid white;
+    padding: 0 0.5em;    
+  }  
+  .tab1 {
+    padding-left: 4ex;
+  }
+}
 kbd {
   margin: 0 0.4px 0;
   padding: 2px 6px;
-  background-color: lighten($color_3,40%);
-  color: darken($color_3,20%);
+  background-color: lighten($color_2,60%);
+  color: darken($color_2,20%);
   font: normal 14px/90% sans-serif; 
-  border: 1px solid lighten($color_4,10%);
+  border: 1px solid lighten($color_2,50%);
   @include border-radius(4px);
   @include background-clip(padding-box);
 }
@@ -236,14 +279,15 @@ table {
 }
 td, th {
   padding: 4px 16px 3px 0;
-  border-bottom: 1px solid lighten($color_4,20%);
+  border-bottom: 1px solid lighten($color_4,80%);
   text-align: left;
 }
 th {
   padding: 8px 0 7px 0;
-  border-bottom-color: lighten($color_4,20%);
-  color: $color_3;
-  font: bold 14px/16px arial, sans-serif;
+  border-bottom-color: lighten($color_4,80%);
+  color: $color_2;
+  font: 500 1.1em/1em $heading_fontstack;
+  vertical-align: bottom;
 }
 td {
   vertical-align: top;
@@ -253,10 +297,16 @@ td {
 /* ============================================================
     Forms
 ============================================================ */
+legend {
+  @extend h2;
+  padding-bottom: 0.5em;
+}
 .field {
   width: 100%;
-  padding: 0 5px;
-  border: 1px solid lighten($color_2,20%);
+  padding: 0.35em 0.5em;
+  background-color: lighten($color_4,88%);
+  border: 1px solid lighten($color_4,60%);
+  box-shadow: inset 0 0.05em 0.65em rgba(0,0,0,0.055);
   font: 1em/1.5 sans-serif;
 }
 label {
@@ -281,7 +331,7 @@ fieldset {
   em {
     display: block;
     margin: 4px 0 4px 0;
-    color: lighten($color_4,50%);
+    color: lighten($color_4,25%);
     font-family: sans-serif;
     font-style: normal;
     font-size: 14px; 
@@ -306,4 +356,31 @@ fieldset {
 
 #container {
   margin: 0 auto;
+}
+
+/* ============================================================
+    Buttons
+============================================================ */
+
+button, input[type='submit'], input[type='button'], .button, a {
+  @include single-transition(all 0.15s ease-in-out);
+}
+button, input[type='submit'], input[type='button'], .button {
+  -webkit-appearance: none;
+  display: inline-block;
+  padding: 0.8em 1em;
+  border: 0;
+  background: $color_2;
+  font: 100%/1 $para_fontstack;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 0.15em 0.25em rgba(0,0,0,0.25);
+  &:hover {
+    background: lighten($color_2,10%);
+  }  
+  &:active {
+    background: darken($color_2,10%);
+    box-shadow: 0 0.15em 0.25em rgba(0,0,0,0.25), inset 0 0.15em 0.25em rgba(0,0,0,0.25);
+  }
 }
