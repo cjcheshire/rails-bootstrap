@@ -173,8 +173,9 @@ a {
   color: $color_2;
   font-size: 100%;
   font-family: arial ,sans-serif;
-  font-weight: bold;
   text-decoration: none;
+}
+.main a {
   &:hover,
   &:focus {
     $my_color: darken($color_2, 10%);
@@ -374,7 +375,7 @@ fieldset {
 ============================================================ */
 
 button, input[type='submit'], input[type='button'], .button, a {
-  @include single-transition(all 0.15s ease-in-out);
+  @include single-transition(all 0.05s ease-in-out);
 }
 button, input[type='submit'], input[type='button'], .button {
   -webkit-appearance: none;

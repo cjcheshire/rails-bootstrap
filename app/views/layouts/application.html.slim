@@ -16,7 +16,7 @@ html
     == render :partial => "/layouts/analytics", :collection => {}    
   body class="#{yield :body_class}"
     .container
-      == render :partial => "/layouts/nav_main", :collection => {}
+      == render "layouts/nav_main", :collection => {}
       .main
         == yield
 
