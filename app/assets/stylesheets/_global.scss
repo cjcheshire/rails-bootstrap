@@ -10,7 +10,10 @@ $color_default_text: #222;
 $color_background: #fff;
 $color_borders: #ccc;
 
-$heading_fontstack: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+$heading_fontstack: Cambria, Georgia, "New Century Schoolbook", "Century Schoolbook L", "Times New Roman", serif;
+// Corbel, Arial, Helvetica, "Nimbus Sans L", "Liberation Sans", sans-serif;
+// Didot,"Bodoni MT", "Century Schoolbook", "Niagara Solid", Utopia, Georgia, Times, "Times New Roman", serif;
+
 $para_fontstack: "Helvetica Neue", sans-serif;
 $code_fontstack: Monaco, Menlo,'Courier New',Courier,monospace;
 
@@ -49,25 +52,25 @@ nav {
 h1 {
   margin: 24px 0 0 0;
   color: $color_2;
-  font: 500 2.9em/1.2em $heading_fontstack; 
+  font: 500 3.8em/1.2em $heading_fontstack; 
   letter-spacing: -0.075em;
 }
 h2 {
   margin: 22px 0 0 0;
   padding: 11px 0 0 0;
   color: $color_2;
-  font: 300 2.1em/1.2em $heading_fontstack;
+  font: 300 2.3em/1.2em $heading_fontstack;
   letter-spacing: -0.075em;
 }
 h3 {
   margin: 20px 0 0 0;
   color: $color_4;
-  font: 300 1.3em/1.1 $heading_fontstack;
+  font: 300 1.5em/1.1 $heading_fontstack;
 }
 h4, h5, h6 {
   margin: $margin_default 0 4px 0;
   color: lighten($color_4,20%);
-  font: 300 1.05em/1 $heading_fontstack;
+  font: 300 1.15em/1 $heading_fontstack;
 }
 
 
