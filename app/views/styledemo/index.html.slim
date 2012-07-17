@@ -534,9 +534,9 @@
           table
             caption The Very Best Eggnog
             colgroup
-              col style="width:15em;"
-                col style="width:6em;"
-                  col style="width:6em;"
+              col style="width:16em;"
+              col style="width:8em;"
+              col style="width:8em;"
             thead
               tr
                 th scope="col" Ingredients
@@ -609,6 +609,24 @@
                   | Text Input
                   abbr title="Required" *
                 input#textinput.field type="text"
+                  em Note about this field
+              div
+                label for="textinputsmall"
+                  | Small Input
+                  abbr title="Required" *
+                input#textinputsmall.field.small type="text"
+                  em Note about this field
+              div
+                label for="textinputmedium"
+                  | Medium Input
+                  abbr title="Required" *
+                input#textinputmedium.field.medium type="text"
+                  em Note about this field
+              div
+                label for="textinputlarge"
+                  | Large Input
+                  abbr title="Required" *
+                input#textinputlarge.field.large type="text"
                   em Note about this field
               div
                 label for="password" Password

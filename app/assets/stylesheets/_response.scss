@@ -34,13 +34,22 @@
   body {
     padding: 0 2em;
   }
+  .field {
+    width: 50%;
+  }
+  .field.small {
+    width: 5em;
+  }
+  .field.medium {
+    width: 15em;
+  }
+  .field.large {
+    width: 20em;
+  }
 }
 /* Desktops and laptops (CJC) ----------- */
 @media only screen and (min-width: 998px) {
 
-  .field {
-    width: 50%;
-  }
   label {
     display: block;
     float: left;
