@@ -31,7 +31,7 @@ $(document).ready(function() {
     }
 
     function openCloseAccountNav(event) {
-        event.preventDefault();
+        event.stopPropagation();
         $(this).toggleClass('on', 'on');
     }
 
