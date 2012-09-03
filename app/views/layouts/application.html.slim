@@ -12,7 +12,12 @@ html
     == favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     == favicon_link_tag 'favicon.png', :rel => 'icon', :type => 'image/png'
     == favicon_link_tag 'touch.png', :rel => 'apple-touch-icon', :type => 'image/png'
+    /[if lte IE8] 
+      == stylesheet_link_tag "all-old-ie", :media => "all"
+    /! [if gt IE 8]><!
     == stylesheet_link_tag "application", :media => "all"
+    /! <![endif]
+      
     == render :partial => "/layouts/analytics", :collection => {}    
   body class="#{yield :body_class}"
     .container
