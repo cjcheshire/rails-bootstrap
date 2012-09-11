@@ -12,7 +12,8 @@ html
     == favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     == favicon_link_tag 'favicon.png', :rel => 'icon', :type => 'image/png'
     == favicon_link_tag 'touch.png', :rel => 'apple-touch-icon', :type => 'image/png'
-    /[if lte IE8] 
+    /[if lte IE 8] 
+      == javascript_include_tag 'html5shiv-printshiv'
       == stylesheet_link_tag "all-old-ie", :media => "all"
     /! [if gt IE 8]><!
     == stylesheet_link_tag "application", :media => "all"
