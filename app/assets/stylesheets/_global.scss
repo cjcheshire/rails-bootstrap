@@ -33,27 +33,31 @@ nav {
 }
 
 h1 {
-  margin: em(24px) 0 0 0;
-  color: $color_2;
-  font: 500 #{em(60px)}/#{em(19px)} $heading_fontstack; 
+  $font_size: 60px;
+  margin: 0 0 em(24px,$font_size) 0;
+  color: $color_3;
+  font: bold #{em($font_size)}/1 $heading_fontstack; 
   letter-spacing: -0.075em;
 }
 h2 {
-  margin: em(12px) 0 0 0;
+  $font_size: 36px;
+  margin: 0 0 em(12px,$font_size) 0;
   padding: 11px 0 0 0;
-  color: $color_2;
-  font: 300 #{em(36px)}/#{em(19px)} $heading_fontstack;
+  color: darken($color_3,20);
+  font: 300 #{em($font_size)}/1 $heading_fontstack;
   letter-spacing: -0.075em;
 }
 h3 {
-  margin: em(20px) 0 0 0;
-  color: $color_4;
-  font: 300 #{em(24px)}/#{em(17px)} $heading_fontstack;
+  $font_size: 24px;
+  margin: 0 0 em(10px,$font_size) 0;
+  color: darken($color_3,20);
+  font: 300 #{em($font_size)}/1 $heading_fontstack;
 }
 h4, h5, h6 {
-  margin: $margin_default 0 4px 0;
-  color: lighten($color_4,20%);
-  font: 300 #{em(18px)}/#{em(16px)} $heading_fontstack;
+  $font_size: 18px;
+  margin: 0 0 em(10px,$font_size) 0;
+  color: $color_default_text;
+  font: 300 #{em($font_size)}/1 $heading_fontstack;
 }
 
 
@@ -61,7 +65,7 @@ h4, h5, h6 {
     Grouping content
 ============================================================ */
 p, pre, ol, ul, dl, figure, figcaption, table, fieldset {
-  margin: $margin_default 0 $margin_default 0;
+  margin: 0 0 $margin_default 0;
 }
 
 pre {
@@ -69,13 +73,14 @@ pre {
 }
 
 hr {
+  $font_size: 30px;
   clear: both;
   display: block;
   height: 0;
   padding: 0;
-  font: 600 #{em(30px)}/#{em(16px)} 'Akagi SemiBold', 'Helvetica Neue', Arial, sans-serif;
+  font: 600 #{em($font_size)}/1 'Akagi SemiBold', 'Helvetica Neue', Arial, sans-serif;
   text-align: center;
-  margin: em(16px) 0 2em 0;
+  margin: em(16px) 0 em(32px) 0;
   border: 0;
 }
 
@@ -89,7 +94,6 @@ hr::after {
 
 blockquote {
   color: $color_3;
-//  font: 300 0.9375em/1.6 'Akagi Book','Helvetica Neue',Arial,sans-serif;
   border-left: 0.25em solid $color_borders;
   margin: em(17px) 0 em(25px) 0;
   padding: 0 em(25px) 0 1.334em;  
@@ -153,7 +157,7 @@ figure {
     Text-level semantics
 ============================================================ */
 a {
-  color: $color_2;
+  color: $color_3;
   font-size: 100%;
   font-family: arial ,sans-serif;
   text-decoration: none;
@@ -161,14 +165,13 @@ a {
 .main a {
   &:hover,
   &:focus {
-    $my_color: darken($color_2, 10%);
+    $my_color: darken($color_3, 10%);
     color: $my_color;
-    border-bottom: 1px solid $my_color;
   }
 }
 
 em, em a, i, var, samp, cite, cite a {
-  font: italic 300 #{em(16px)}/90% $para_fontstack;
+  font: italic 300 #{em(16px)}/0.9 $para_fontstack;
 }
 strong, b {
   font-weight: 600;
@@ -208,14 +211,14 @@ time {
   text-transform: uppercase;
 }
 code, samp {
-  font: #{em(16px)}/90% $code_fontstack;
+  font: #{em(16px)}/0.9 $code_fontstack;
 }
 code {
-  color:$color_2;
+  color:$color_3;
 }
 .code {
-  margin: em(16px) 0 0 em(40px);
-  font: #{em(16px)}/1.7143 $code_fontstack;
+  margin: 0 0 0 em(40px);
+  font: #{em(16px)}/1.7 $code_fontstack;
   color: #999;
   li {
     list-style: decimal-leading-zero;
@@ -231,10 +234,10 @@ code {
 kbd {
   margin: 0 0.4px 0;
   padding: em(5px) em(6px);
-  background-color: lighten($color_2,60%);
-  color: darken($color_2,20%);
+  background-color: lighten($color_3,60%);
+  color: darken($color_3,20%);
   font: normal #{em(14px)}/90% sans-serif; 
-  border: 1px solid lighten($color_2,50%);
+  border: 1px solid lighten($color_3,50%);
   @include border-radius(4px);
   @include background-clip(padding-box);
 }
@@ -254,7 +257,7 @@ sup {
 ============================================================ */
 mark, ins {
   color: $color_4;
-  background-color: lighten($color_2,20%);
+  background-color: lighten($color_3,20%);
   text-decoration:none;
 }
 del {
@@ -277,7 +280,7 @@ td, th {
 th {
   padding: em(8px) 0 em(7px) 0;
   border-bottom-color: lighten($color_4,80%);
-  color: $color_2;
+  color: $color_3;
   font: 500 #{em(17px)}/#{em(16px)} $heading_fontstack;
   vertical-align: bottom;
 }
@@ -312,11 +315,11 @@ legend {
   background-color: lighten($color_4,88%);
   border: 1px solid lighten($color_4,60%);
   box-shadow: inset 0 0.05em 0.65em rgba(0,0,0,0.055);
-  font: #{em(16px)}/#{em(24px)} sans-serif;
+  font: #{em(16px)}/1.5 sans-serif;
 }
 label {
   display: block;
-  margin: em(4px) 0;
+  margin: 0 0 4px 0;
   font-weight: 400;
   line-height: 1.5;
   @include respond-min($super-desktop) {
@@ -333,7 +336,7 @@ input[type="radio"],input[type="checkbox"] {
 }
 fieldset {
   div {
-    margin: $margin_default 0;
+    margin: 0 0 em(16px) 0;
   }
   abbr[title="Required"] {
     color: #900;
@@ -342,7 +345,7 @@ fieldset {
   }
   em {
     display: block;
-    margin: em(4px) 0;
+    margin: 4px 0 0 0;
     @include respond-min($super-desktop) {
       margin-left: 20%;
     }
@@ -391,17 +394,17 @@ button, input[type='submit'], input[type='button'], .button {
   display: inline-block;
   padding: em(13px) em(16px);
   border: 0;
-  background: $color_2;
+  background: $color_3;
   font: 100%/1 $para_fontstack;
   color: #fff;
   cursor: pointer;
   border-radius: 4px;
   box-shadow: 0 em(2px) em(4px) rgba(0,0,0,0.25);
   &:hover {
-    background: lighten($color_2,10%);
+    background: lighten($color_3,10%);
   }  
   &:active {
-    background: darken($color_2,10%);
+    background: darken($color_3,10%);
     box-shadow: 0 em(2px) em(4px) rgba(0,0,0,0.25), inset 0 em(2px) em(4px) rgba(0,0,0,0.25);
   }
 }
